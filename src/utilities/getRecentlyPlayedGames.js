@@ -1,6 +1,6 @@
 const API_KEY = process.env.REACT_APP_API_KEY;
 
-export async function getRecentlyPlayedGames(steamid, count = 5) {
+export async function getRecentlyPlayedGames(steamid, count = 10) {
   const url = `/steamapi/IPlayerService/GetRecentlyPlayedGames/v0001/?key=${API_KEY}&steamid=${steamid}&format=json&count=${count}`;
 
   try {

@@ -7,7 +7,7 @@ module.exports = function(app) {
       target: 'https://api.steampowered.com',
       changeOrigin: true,
       pathRewrite: {
-        '^/steamapi': '', // smaže /steamapi ze začátku URL
+        '^/steamapi': '',
       },
     })
   );

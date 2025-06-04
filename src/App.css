@@ -135,22 +135,11 @@ body{
   color: #f0f0f0;
 }
 
-.home{ 
+.react{ 
   display: flex;
+  height: 150vh;
   align-items: center;
   flex-direction: column;
-}
-
-.about, .steam{
-  display: flex;
-  height: 360px;
-  align-items: center;
-  justify-content: flex-end;
-  flex-direction: column;
-}
-
-.about{
-  font-size: 150%;
 }
 
 .facts{

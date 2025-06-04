@@ -10,7 +10,7 @@ function Corenavbar() {
           <Navbar.Brand href="/">Jim's REACT</Navbar.Brand>
           <Nav className="me-auto">
           <Nav.Link href="/">Home</Nav.Link>
-          <Nav.Link href="steam">SP:GAT</Nav.Link>
+          <Nav.Link href="about">About</Nav.Link>
           <Nav.Link href="facts">Cat facts</Nav.Link>
           </Nav>
         </Container>

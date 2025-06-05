@@ -18,7 +18,7 @@ handleAgeChange = () => {
             <h1 className='text-blue-200 text-1xl text-center'>
                 {this.state.age}
             </h1>
-            <p className='text-blue-500 text-lg hover:text-blue-900 text-center'>
+            <p className='text-blue-500 text-lg hover:text-blue-800 text-center'>
                 {process.env.REACT_APP_API_URL}
             </p>
         </div>;

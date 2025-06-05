@@ -9,7 +9,7 @@ function Corenavbar() {
         <Container>
           <Navbar.Brand href="/">Jim's REACT</Navbar.Brand>
           <Nav className="me-auto">
-          <Nav.Link href="/">Home</Nav.Link>
+          <Nav.Link href="/">Steam Playlog</Nav.Link>
           <Nav.Link href="about">About</Nav.Link>
           <Nav.Link href="facts">Cat facts</Nav.Link>
           </Nav>

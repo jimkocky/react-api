@@ -26,7 +26,7 @@ export default function Facts() {
         <Corenavbar></Corenavbar>
             <div class="facts">
             <h1 class="title-cat">Here are some CAT FACTS:</h1>
-            <p class="fact">{facts.map((fact, index) => <div key={index}>{JSON.stringify(fact)}</div>)}</p>
+            <p>{facts.map((fact, index) => <div key={index}>{JSON.stringify(fact)}</div>)}</p>
                 <img src="https://http.cat/200.jpg" alt="Success Cat" />
             </div>
         </>

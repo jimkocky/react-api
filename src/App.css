@@ -96,6 +96,16 @@ html.lenis, html.lenis body {
   src: url('../public/fonts/Jersey10-Regular.ttf')
 }
 
+@font-face {
+  font-family: 'DynaPuff-Bold';
+  src: url('../public/fonts/DynaPuff_Condensed/DynaPuff-Bold.ttf')
+}
+
+@font-face {
+  font-family: 'DynaPuff-Regular';
+  src: url('../public/fonts/DynaPuff_Condensed/DynaPuff-Regular.ttf')
+}
+
 .home{
   display: flex;
   justify-content: center;
@@ -228,7 +238,7 @@ html.lenis, html.lenis body {
 }
 
 .status-ingame{
-  color: #5df279
+  color: #38B947
 }
 
 .status-online{
@@ -240,11 +250,10 @@ html.lenis, html.lenis body {
 }
 
 .hover-image-link {
-  margin: 2% 0 0 0;
+  margin: 5% 0 0 0;
   position: relative;
   display: inline-block;
   width: fit-content;
-  left: 21.5vw;
 }
 
 .image-normal,
@@ -288,6 +297,7 @@ html.lenis, html.lenis body {
   background-color: #F9F9F9;
   padding: 15px;
   border-radius: 10px;
+  box-shadow: #3087FF 7.5px 7.5px;
   box-sizing: border-box;
 }
 
@@ -324,6 +334,26 @@ html.lenis, html.lenis body {
   color: #3087FF;
 }
 
-.facts{
+.about{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background-color: #060F17;
+  color: #F9F9F9;
+}
 
+.facts{
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  font-family: 'DynaPuff-Regular';
+  background-color: #FFBBE4;
+  color: #050000;
+  font-size: 150%;
+}
+
+.title-cat{
+  font-family: 'DynaPuff-Bold';
+  font-size: 200%;
 }

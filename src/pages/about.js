@@ -5,7 +5,7 @@ export default function About(){
     return(
     <>
     <Corenavbar></Corenavbar>
-    <div class="react">
+    <div class="about">
         <h1>Ahoj, já jsem Ondra a jsem z Baltaci.</h1>
         <p>...</p>
         <img className src= {image}></img>

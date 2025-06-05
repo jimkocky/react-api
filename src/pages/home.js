@@ -99,8 +99,9 @@ return (
 
 <>
 <Corenavbar />
-    <div className="steam">
-        <h1 className="title-steam">Steam Playlog: Gaming Activity Tracker</h1>
+    <div className="home">
+        <h1 className="title-home">Steam Playlog</h1>
+        <h2 className="subtitle">Přehled herní aktivity na Steamu</h2>
 
         <input type="text" className="input-steam" placeholder="Zadej své Steam ID…" value={steamId} onChange={(e) => setSteamId(e.target.value)} onKeyDown={(e) => { if (e.key === 'Enter') handleClick(); }}/>
 
@@ -127,11 +128,15 @@ return (
             <ul className="game-list">
                 {games.map((game) => (
                 <li key={game.appid} className="game-item">
-                    <div>
-                        <img src={`https://media.steampowered.com/steamcommunity/public/images/apps/${game.appid}/${game.img_icon_url}.jpg`} alt={game.name} className="game-icon"/>
-                        <h3>{game.name}</h3>
-                        <p>Hráno za celou dobu: {Math.round((game.playtime_forever || 0) / 60)} hodin</p>
-                        <p>Za poslední 2 týdny: {Math.round((game.playtime_2weeks || 0) / 60)} hodin</p>
+                    <div className="game-item">
+                        <div className="game-row">
+                            <img src={`https://media.steampowered.com/steamcommunity/public/images/apps/${game.appid}/${game.img_icon_url}.jpg`} alt={game.name} className="game-icon"/>
+                            <div className="game-details">
+                                <h3>{game.name}</h3>
+                                <p>Nahráno hodin: {Math.round((game.playtime_forever || 0) / 60)} hodin</p>
+                                <p>Za poslední 2 týdny: {Math.round((game.playtime_2weeks || 0) / 60)} hodin</p>
+                            </div>
+                        </div>
                     </div>
                 </li>
                 ))}

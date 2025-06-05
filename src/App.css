@@ -168,7 +168,7 @@ html.lenis, html.lenis body {
 
 .steam-container{
   width: 100%;
-  min-height: 407px;
+  min-height: 100vh;
   background-color: #282A2D;
   color: #F9F9F9;
   display: flex;

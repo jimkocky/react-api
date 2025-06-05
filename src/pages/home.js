@@ -2,6 +2,8 @@ import { useState } from 'react';
 import Corenavbar from "../components/navbar";
 import { getRecentlyPlayedGames } from "../utilities/getRecentlyPlayedGames";
 import { getPlayerSummary } from "../utilities/getPlayerSummary";
+import steam from '../assets/steam.png';
+import steamHover from '../assets/steam-hover.png';
 
 export default function Home() {
     const [steamId, setSteamId] = useState('');
@@ -107,37 +109,52 @@ return (
             <input type="text" class="input-id" placeholder="Zadej Steam ID…" value={steamId} onChange={(e) => setSteamId(e.target.value)} onKeyDown={(e) => { if (e.key === 'Enter') handleClick(); }}/>
         </div>      
 
+<div class="steam-container">
+    <div class="player-summary">
         {username && (
             <div class="user-info">
-                <img src={avatar} alt="Avatar" class="avatar" />
-                <h3>{username}</h3>
-                {realName && <p>{realName}</p>}
-                {status && <p class={`status ${getStatusClass(status)}`}>{status}</p>}
-                {lastOnline && <p>Naposledy online před {lastOnline}</p>}
-                <p>{country}</p>
-                <a href={profileUrl} target="_blank" rel="noreferrer">Otevřít Steam profil</a>
+                    <img src={avatar} alt="Avatar" class="avatar"/>
+                <div class="user-details">
+                    <div class="detail-1">
+                        <h3 class="username">{username}</h3>
+                        <p class="country">{country}</p>
+                    </div>
+                    <div class="detail-2">
+                        {realName && <p class="real-name">{realName}</p>}
+                        <p>
+                            {status && <p class={`status ${getStatusClass(status)}`}>{status}</p>}
+                            {lastOnline && <p class="last-online">Naposledy online {lastOnline}</p>}
+                        </p>
+                    </div>
+                    <a href={profileUrl} target="_blank" rel="noreferrer" className="hover-image-link">
+                        <img src={steam} alt="Normal" className="image-normal" />
+                        <img src={steamHover} alt="Hover" className="image-hover" />
+                    </a>
+                </div>
             </div>
         )}
+    </div>
 
+    <div className="recently-played-games">
         {games.length > 0 && (
-            <ul class="game-list">
-                {games.map((game) => (
+            <ul className="game-list">
+            {games.map((game) => (
                 <li key={game.appid} className="game-item">
-                    <div class="game-item">
-                        <div class="game-row">
-                            <img src={`https://media.steampowered.com/steamcommunity/public/images/apps/${game.appid}/${game.img_icon_url}.jpg`} alt={game.name} class="game-icon"/>
-                            <div class="game-details">
-                                <h3>{game.name}</h3>
-                                <p>Nahráno hodin: {Math.round((game.playtime_forever || 0) / 60)} hodin</p>
-                                <p>Za poslední 2 týdny: {Math.round((game.playtime_2weeks || 0) / 60)} hodin</p>
-                            </div>
-                        </div>
+                <div className="game-row">
+                    <img src={`https://media.steampowered.com/steamcommunity/public/images/apps/${game.appid}/${game.img_icon_url}.jpg`} alt={game.name} className="game-icon"/>
+                    <div className="game-info">
+                    <h3 className="game-name">{game.name}</h3>
+                    <p className="game-hour">Nahráno: <a class="hour">{Math.round((game.playtime_forever || 0) / 60)} hodin</a></p>
+                    <p className="game-hour">Za poslední 2 týdny: <a class="hour">{Math.round((game.playtime_2weeks || 0) / 60)} hodin</a></p>
                     </div>
+                </div>
                 </li>
-                ))}
+            ))}
             </ul>
         )}
+        </div>
     </div>
+</div>
 </>
 );
 }

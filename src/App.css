@@ -57,16 +57,23 @@ html.lenis, html.lenis body {
   pointer-events: none;
 }
 
-
+* ,p{
+  margin: 0;
+}
 
 @font-face {
-  font-family: 'Jersey10-Regular';
-  src: url('../public/fonts/Jersey10-Regular.ttf')
+  font-family: 'DMSans-Regular';
+  src: url('../public/fonts/DMSans/DMSans-Regular.ttf')
 }
 
 @font-face {
   font-family: 'Poppins-Regular';
   src: url('../public/fonts/Poppins/Poppins-Regular.ttf')
+}
+
+@font-face {
+  font-family: 'Poppins-Italic';
+  src: url('../public/fonts/Poppins/Poppins-Italic.ttf')
 }
 
 @font-face {
@@ -84,21 +91,30 @@ html.lenis, html.lenis body {
   src: url('../public/fonts/Poppins/Poppins-SemiBoldItalic.ttf')
 }
 
+@font-face {
+  font-family: 'Jersey10-Regular';
+  src: url('../public/fonts/Jersey10-Regular.ttf')
+}
+
 .home{
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  color: #282A2D;
-  background-color: pink;
+  background-color: #282A2D;
+  color: #F9F9F9;
+  font-family: 'DMSans-Regular';
 }
 
 .home-header{
+  width: 100%;
+  height: 40vh;
   display: flex;
+  justify-content: center;
   align-items: center;
   flex-direction: column;
-  margin: 2% 0 0;
-  background-color: red;
+  color: #282A2D;
+  background-color: #F9F9F9;
 }
 
 .title-home{
@@ -119,19 +135,195 @@ html.lenis, html.lenis body {
 
 .input-id {
   width: 400px;
+  color: #282A2D;
+  background-color: #F9F9F9;
   font-size: 24px;
   text-align: center;
-  color: #282A2D;
-  margin: 1% 0;
-  background-color: #EFEFEF;
-  border: 2px solid transparent;
+  margin: 1% 0 0;
+  border: 3px solid #282A2D;
   border-radius: 8px;
-  padding: 10px 16px;
+  padding: 5px 15px;
   outline: none;
   transition: border-color 0.4s ease, box-shadow 0.4s ease;
 }
 
+.input-id:hover {
+  border: 3px solid #2C66BE;
+}
+
 .input-id:focus {
   border-color: #3087FF;
-  box-shadow: #3087FF;
+  box-shadow: #282A2D 7.5px 7.5px;
+}
+
+.steam-container{
+  width: 100%;
+  min-height: 407px;
+  background-color: #282A2D;
+  color: #F9F9F9;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.player-summary{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 2.5% 0 2.5%;
+  width: 100%;
+}
+
+.user-info{
+  width: 80%;
+  height: 32vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 2.5%;
+  padding-bottom: 1%;
+  border-bottom: solid #F9F9F9 4px;
+  border-radius: 2px;
+}
+
+.user-details{
+  display: flex;
+  flex-direction: column;
+}
+
+.detail-1{
+  min-width: 15vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+}
+
+.username{
+  font-family: 'Poppins-SemiBold';
+  font-size: 200%;
+}
+
+.country{
+    font-family: 'Jersey10-Regular';
+    font-size: 175%;
+    margin: 0 2% 1%;
+}
+
+.detail-2{
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+.real-name{
+  font-family: 'Poppins-Italic';
+  color: #C4C4C4;
+  font-size: 150%;
+}
+
+.status-ingame, .status-online, .status-offline, .status-unknown, .last-online{
+  font-family: 'Jersey10-Regular';
+  font-size: 200%;
+}
+
+.status-ingame{
+  color: #5df279
+}
+
+.status-online{
+  color: #3087FF;
+}
+
+.status-offline, .status-unknown, .last-online {
+  color: #888;
+}
+
+.hover-image-link {
+  margin: 2% 0 0 0;
+  position: relative;
+  display: inline-block;
+  width: fit-content;
+  left: 21.5vw;
+}
+
+.image-normal,
+.image-hover {
+  width: 34px; 
+  height: auto;
+  display: block;
+}
+
+.image-hover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+}
+
+.hover-image-link:hover .image-hover {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.hover-image-link:hover .image-normal {
+  transition: opacity 0.4s ease;
+  opacity: 0;
+}
+
+.game-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 33px;
+  padding: 0;
+  list-style-type: none;
+  justify-content: center;
+}
+
+.game-item {
+  width: 28vw;
+  color: #282A2D;
+  background-color: #F9F9F9;
+  padding: 15px;
+  border-radius: 10px;
+  box-sizing: border-box;
+}
+
+.game-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.game-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 5px;
+}
+
+.game-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.game-name {
+  font-family: 'Poppins-SemiBold';
+  font-size: 200%;
+  margin: 0;
+}
+
+.game-hour {
+  font-size: 175%;
+  font-family: 'Jersey10-Regular';
+}
+
+.hour{
+  text-decoration: none;
+  color: #3087FF;
+}
+
+.facts{
+
 }

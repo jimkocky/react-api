@@ -99,39 +99,34 @@ return (
 
 <>
 <Corenavbar />
-    <div className="home">
-        <h1 className="title-home">Steam Playlog</h1>
-        <h2 className="subtitle">Přehled herní aktivity na Steamu</h2>
+    <div class="home">
 
-        <input type="text" className="input-steam" placeholder="Zadej své Steam ID…" value={steamId} onChange={(e) => setSteamId(e.target.value)} onKeyDown={(e) => { if (e.key === 'Enter') handleClick(); }}/>
+        <div class="home-header">
+            <h1 class="title-home">Steam Playlog</h1>
+            <h2 class="subtitle">Přehled herní aktivity</h2>
+            <input type="text" class="input-id" placeholder="Zadej Steam ID…" value={steamId} onChange={(e) => setSteamId(e.target.value)} onKeyDown={(e) => { if (e.key === 'Enter') handleClick(); }}/>
+        </div>      
 
         {username && (
-            <div className="user-info">
-
-                <img src={avatar} alt="Avatar" className="avatar" />
-
+            <div class="user-info">
+                <img src={avatar} alt="Avatar" class="avatar" />
                 <h3>{username}</h3>
-
                 {realName && <p>{realName}</p>}
-
-                {status && <p className={`status ${getStatusClass(status)}`}>{status}</p>}
-
+                {status && <p class={`status ${getStatusClass(status)}`}>{status}</p>}
                 {lastOnline && <p>Naposledy online před {lastOnline}</p>}
-
                 <p>{country}</p>
-                
                 <a href={profileUrl} target="_blank" rel="noreferrer">Otevřít Steam profil</a>
             </div>
         )}
 
         {games.length > 0 && (
-            <ul className="game-list">
+            <ul class="game-list">
                 {games.map((game) => (
                 <li key={game.appid} className="game-item">
-                    <div className="game-item">
-                        <div className="game-row">
-                            <img src={`https://media.steampowered.com/steamcommunity/public/images/apps/${game.appid}/${game.img_icon_url}.jpg`} alt={game.name} className="game-icon"/>
-                            <div className="game-details">
+                    <div class="game-item">
+                        <div class="game-row">
+                            <img src={`https://media.steampowered.com/steamcommunity/public/images/apps/${game.appid}/${game.img_icon_url}.jpg`} alt={game.name} class="game-icon"/>
+                            <div class="game-details">
                                 <h3>{game.name}</h3>
                                 <p>Nahráno hodin: {Math.round((game.playtime_forever || 0) / 60)} hodin</p>
                                 <p>Za poslední 2 týdny: {Math.round((game.playtime_2weeks || 0) / 60)} hodin</p>

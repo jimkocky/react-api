@@ -57,3 +57,81 @@ html.lenis, html.lenis body {
   pointer-events: none;
 }
 
+
+
+@font-face {
+  font-family: 'Jersey10-Regular';
+  src: url('../public/fonts/Jersey10-Regular.ttf')
+}
+
+@font-face {
+  font-family: 'Poppins-Regular';
+  src: url('../public/fonts/Poppins/Poppins-Regular.ttf')
+}
+
+@font-face {
+  font-family: 'Poppins-Bold';
+  src: url('../public/fonts/Poppins/Poppins-Bold.ttf')
+}
+
+@font-face {
+  font-family: 'Poppins-SemiBold';
+  src: url('../public/fonts/Poppins/Poppins-SemiBold.ttf')
+}
+
+@font-face {
+  font-family: 'Poppins-SemiBoldItalic';
+  src: url('../public/fonts/Poppins/Poppins-SemiBoldItalic.ttf')
+}
+
+.home{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: #282A2D;
+  background-color: pink;
+}
+
+.home-header{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin: 2% 0 0;
+  background-color: red;
+}
+
+.title-home{
+  font-family: 'Poppins-Bold';
+  font-size: 80px;
+}
+
+.subtitle{
+  font-family: 'Poppins-SemiBoldItalic';
+  font-size: 50px;
+}
+
+.input-id{
+  width: 400px;
+  font-size: 24px;
+  text-align: center;
+}
+
+.input-id {
+  width: 400px;
+  font-size: 24px;
+  text-align: center;
+  color: #282A2D;
+  margin: 1% 0;
+  background-color: #EFEFEF;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  padding: 10px 16px;
+  outline: none;
+  transition: border-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+.input-id:focus {
+  border-color: #3087FF;
+  box-shadow: #3087FF;
+}

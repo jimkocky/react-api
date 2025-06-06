@@ -45,12 +45,5 @@
   },
   "devDependencies": {
     "tailwindcss": "^3.4.17"
-  },
-  "rewrites": [
-    {
-      "source": "/steamapi/:path*",
-      "destination": "https://api.steampowered.com/:path*"
-    }
-  ]
-
+  }
 }

@@ -135,25 +135,25 @@ return (
         )}
     </div>
 
-    <div className="recently-played-games">
+    <div class="recently-played-games">
         {games.length > 0 && (
-            <ul className="game-list">
+            <ul class="game-list">
             {games.map((game) => (
-                <li key={game.appid} className="game-item">
-                <div className="game-row">
+                <li key={game.appid} class="game-item">
+                <div class="game-row">
                     <img src={`https://media.steampowered.com/steamcommunity/public/images/apps/${game.appid}/${game.img_icon_url}.jpg`} alt={game.name} className="game-icon"/>
-                    <div className="game-info">
-                    <h3 className="game-name">{game.name}</h3>
-                    <p className="game-hour">Nahráno: <a class="hour">{Math.round((game.playtime_forever || 0) / 60)} hodin</a></p>
-                    <p className="game-hour">Za poslední 2 týdny: <a class="hour">{Math.round((game.playtime_2weeks || 0) / 60)} hodin</a></p>
+                    <div class="game-info">
+                    <h3 class="game-name">{game.name}</h3>
+                    <p class="game-hour">Nahráno: <a class="hour">{Math.round((game.playtime_forever || 0) / 60)} hodin</a></p>
+                    <p class="game-hour">Za poslední 2 týdny: <a class="hour">{Math.round((game.playtime_2weeks || 0) / 60)} hodin</a></p>
                     </div>
                 </div>
                 </li>
             ))}
             </ul>
         )}
-        </div>
     </div>
+</div>
 </div>
 </>
 );

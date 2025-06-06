@@ -61,6 +61,10 @@ html.lenis, html.lenis body {
   margin: 0;
 }
 
+a{
+  text-decoration: none;
+}
+
 @font-face {
   font-family: 'DMSans-Regular';
   src: url('../public/fonts/DMSans/DMSans-Regular.ttf')
@@ -282,6 +286,13 @@ html.lenis, html.lenis body {
   opacity: 0;
 }
 
+.recently-played-games{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
 .game-list {
   display: flex;
   flex-wrap: wrap;
@@ -357,3 +368,4 @@ html.lenis, html.lenis body {
   font-family: 'DynaPuff-Bold';
   font-size: 200%;
 }
+

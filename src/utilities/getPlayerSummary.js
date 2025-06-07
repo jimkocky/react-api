@@ -1,4 +1,4 @@
-const API_KEY = process.env.REACT_APP_API_KEY;
+const API_KEY = '1EF3D42AC009B6597E5E1235B6E8666A'
 
 export async function getPlayerSummary(steamid) {
   const url = `/steamapi/ISteamUser/GetPlayerSummaries/v0002/?key=${API_KEY}&steamids=${steamid}&format=json`;

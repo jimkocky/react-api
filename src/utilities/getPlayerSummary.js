@@ -1,8 +1,7 @@
 const API_KEY = process.env.REACT_APP_API_KEY;
 
 export async function getPlayerSummary(steamid) {
-  const url = `/steamapi/ISteamUser/GetPlayerSummaries/v0002/?key=${API_KEY}&steamids=${steamid}&format=json`;
-
+  const url = `/api/steam?type=summary&steamid=${steamid}`;
   console.log('Načítám profil ze Steamu pro ID:', steamid);
   console.log('Použitá URL:', url);
   console.log('API klíč:', API_KEY);

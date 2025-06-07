@@ -1,7 +1,7 @@
 const API_KEY = process.env.REACT_APP_API_KEY;
 
 export async function getRecentlyPlayedGames(steamid, count = 12) {
-  const url = `/steamapi/IPlayerService/GetRecentlyPlayedGames/v0001/?key=${API_KEY}&steamid=${steamid}&format=json&count=${count}`;
+  const url = `/api/steam?type=recent&steamid=${steamid}`;
 
   console.log('Načítám nedávno hrané hry pro ID:', steamid);
   console.log('Použitá URL:', url);

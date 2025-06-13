@@ -1,44 +1,58 @@
 const express = require('express');
-const fetch = require('node-fetch');
-const app = express();
-const port = 3000;
+const cors = require('cors');
+const axios = require('axios');
 
+const app = express();
+const port = process.env.PORT || 5000;
+
+app.use(cors()); // Povolit CORS
+app.use(express.json());
+
+// API klíč pro Steam
 const API_KEY = '1EF3D42AC009B6597E5E1235B6E8666A';
 
-app.get('/api/player-summary', async (req, res) => {
-    const { steamid } = req.query;
-    if (!steamid) {
-        return res.status(400).json({ error: 'Missing steamid parameter' });
-    }
+// Proxy pro profil
+app.get('/api/playerSummary', async (req, res) => {
+  const { steamid } = req.query;
 
-    const url = `https://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/?key=${API_KEY}&steamids=${steamid}&format=json`;
+  try {
+    const response = await axios.get(`https://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/`, {
+      params: {
+        key: API_KEY,
+        steamids: steamid,
+        format: 'json'
+      }
+    });
 
-    try {
-        const response = await fetch(url);
-        const data = await response.json();
-        res.json(data);
-    } catch (err) {
-        res.status(500).json({ error: 'Error fetching data from Steam API' });
-    }
+    res.json(response.data);
+  } catch (error) {
+    console.error(error);
+    res.status(500).send('Chyba při získávání dat o profilu');
+  }
 });
 
-app.get('/api/recently-played-games', async (req, res) => {
-    const { steamid, count = 12 } = req.query;
-    if (!steamid) {
-        return res.status(400).json({ error: 'Missing steamid parameter' });
-    }
+// Proxy pro nedávno hrané hry
+app.get('/api/recentlyPlayedGames', async (req, res) => {
+  const { steamid, count } = req.query;
 
-    const url = `https://api.steampowered.com/IPlayerService/GetRecentlyPlayedGames/v0001/?key=${API_KEY}&steamid=${steamid}&format=json&count=${count}`;
+  try {
+    const response = await axios.get(`https://api.steampowered.com/IPlayerService/GetRecentlyPlayedGames/v0001/`, {
+      params: {
+        key: API_KEY,
+        steamid: steamid,
+        format: 'json',
+        count: count || 12
+      }
+    });
 
-    try {
-        const response = await fetch(url);
-        const data = await response.json();
-        res.json(data);
-    } catch (err) {
-        res.status(500).json({ error: 'Error fetching data from Steam API' });
-    }
+    res.json(response.data);
+  } catch (error) {
+    console.error(error);
+    res.status(500).send('Chyba při získávání dat o hrách');
+  }
 });
 
+// Spustit server
 app.listen(port, () => {
-    console.log(`Server is running at http://localhost:${port}`);
+  console.log(`Server běží na portu ${port}`);
 });

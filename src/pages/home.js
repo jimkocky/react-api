@@ -88,6 +88,7 @@ export default function Home() {
                 <div className="home-header">
                     <h1 className="title-home">Steam Playlog</h1>
                     <h2 className="subtitle">Přehled herní aktivity</h2>
+                    <p className="error-message"> Omlouvám se, ale z nějákeho důfodu API nefunguje na hostingu :( </p>
                     <input
                         type="text"
                         className="input-id"

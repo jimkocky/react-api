@@ -141,6 +141,12 @@ a{
   font-size: 50px;
 }
 
+.error-message{
+  color:#919191;
+  margin:0.5%;
+  font-size: 120%;
+}
+
 .input-id{
   width: 400px;
   font-size: 24px;
